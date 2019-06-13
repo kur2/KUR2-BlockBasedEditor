@@ -3,6 +3,8 @@ package InstructionComponents;
 import java.awt.Dimension;
 
 import model.InstructionComponent;
+import model.LocalizedStrings;
+
 import javax.swing.JLabel;
 import javax.swing.border.EtchedBorder;
 
@@ -14,7 +16,7 @@ public class JumpInstructionComponent extends InstructionComponent {
 	JLabel label;
 	
 	public JumpInstructionComponent() {
-		setDisplayedText("Springe nach");
+		setDisplayedText(LocalizedStrings.instructionJump);
 		setPreferredSize(new Dimension(150, 50));
 		setLayout(null);
 		

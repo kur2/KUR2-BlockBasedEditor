@@ -33,6 +33,7 @@ import InstructionComponents.StoreInstructionComponent;
 import InstructionComponents.SubAddressInstructionComponent;
 import InstructionComponents.SubConstantInstructionComponent;
 import model.InstructionComponent;
+import model.LocalizedStrings;
 
 public class InstructionSelector extends JTabbedPane {
 	private static final long serialVersionUID = 1L;
@@ -54,7 +55,7 @@ public class InstructionSelector extends JTabbedPane {
 		
 		//----------FLOW----------
 		JPanel panelFlow = new JPanel();
-		addTab("Fluss", null, panelFlow, null);
+		addTab(LocalizedStrings.guiTabFlow, null, panelFlow, null);
 		
 		noopPanel=new NoopInstructionComponent(true);
 		noopPanel.addMouseListener(new MouseAdapter() {
@@ -80,7 +81,7 @@ public class InstructionSelector extends JTabbedPane {
 		
 		//----------JUMP----------
 		JPanel panelJump = new JPanel();
-		addTab("Sprünge", null, panelJump, null);
+		addTab(LocalizedStrings.guiTabJumps, null, panelJump, null);
 		
 		jumpPanel=new JumpInstructionComponent();
 		jumpPanel.addMouseListener(new MouseAdapter() {
@@ -139,7 +140,7 @@ public class InstructionSelector extends JTabbedPane {
 		
 		//----------DATA----------
 		JPanel panelData = new JPanel();
-		addTab("Daten", null, panelData, null);
+		addTab(LocalizedStrings.guiTabData, null, panelData, null);
 		
 		nullPanel=new NullInstructionComponent();
 		nullPanel.addMouseListener(new MouseAdapter() {
@@ -187,7 +188,7 @@ public class InstructionSelector extends JTabbedPane {
 		
 		//----------ADD-----------
 		JPanel panelAdd = new JPanel();
-		addTab("Addition", null, panelAdd, null);
+		addTab(LocalizedStrings.guiTabAdd, null, panelAdd, null);
 		
 		addConstantPanel=new AddConstantInstructionComponent(true);
 		addConstantPanel.addMouseListener(new MouseAdapter() {
@@ -213,7 +214,7 @@ public class InstructionSelector extends JTabbedPane {
 		
 		//----------SUB-----------
 		JPanel panelSub = new JPanel();
-		addTab("Subtraktion", null, panelSub, null);
+		addTab(LocalizedStrings.guiTabSub, null, panelSub, null);
 		
 		subConstantPanel=new SubConstantInstructionComponent(true);
 		subConstantPanel.addMouseListener(new MouseAdapter() {
@@ -239,7 +240,7 @@ public class InstructionSelector extends JTabbedPane {
 		
 		//----------MULT----------
 		JPanel panelMul = new JPanel();
-		addTab("Multiplikation", null, panelMul, null);
+		addTab(LocalizedStrings.guiTabMult, null, panelMul, null);
 		
 		multConstantPanel=new MultConstantInstructionComponent(true);
 		multConstantPanel.addMouseListener(new MouseAdapter() {
@@ -265,7 +266,7 @@ public class InstructionSelector extends JTabbedPane {
 		
 		//----------DIV-----------
 		JPanel panelDiv = new JPanel();
-		addTab("Division", null, panelDiv, null);
+		addTab(LocalizedStrings.guiTabDiv, null, panelDiv, null);
 		
 		divConstantPanel=new DivConstantInstructionComponent(true);
 		divConstantPanel.addMouseListener(new MouseAdapter() {
@@ -291,7 +292,7 @@ public class InstructionSelector extends JTabbedPane {
 		
 		//----------MOD-----------
 		JPanel panelMod = new JPanel();
-		addTab("Modulo", null, panelMod, null);
+		addTab(LocalizedStrings.guiTabMod, null, panelMod, null);
 		
 		modConstantPanel=new ModCostantInstructionComponent(true);
 		modConstantPanel.addMouseListener(new MouseAdapter() {
@@ -317,7 +318,7 @@ public class InstructionSelector extends JTabbedPane {
 		
 		//----------I/O-----------
 		JPanel panelIO = new JPanel();
-		addTab("Ein-/Ausgabe", null, panelIO, null);
+		addTab(LocalizedStrings.guiTabIO, null, panelIO, null);
 		
 		inputPanel=new InputInstructionComponent(true);
 		inputPanel.addMouseListener(new MouseAdapter() {

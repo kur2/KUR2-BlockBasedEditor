@@ -7,6 +7,7 @@ import javax.swing.border.EtchedBorder;
 
 import controller.EditorController;
 import model.InstructionComponent;
+import model.LocalizedStrings;
 
 public class SubAddressInstructionComponent extends InstructionComponent {
 	private static final long serialVersionUID = 1L;
@@ -14,7 +15,7 @@ public class SubAddressInstructionComponent extends InstructionComponent {
 	JLabel label;
 	
 	public SubAddressInstructionComponent(){
-		setDisplayedText("Subtrahiere Wert bei");
+		setDisplayedText(LocalizedStrings.instructionSubA);
 		setPreferredSize(new Dimension(150, 50));
 		setLayout(null);
 		

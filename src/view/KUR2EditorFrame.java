@@ -13,6 +13,9 @@ import javax.swing.JScrollPane;
 
 import controller.CompilerController;
 import controller.EditorController;
+import controller.LocalizationController;
+import controller.LocalizationController.Language;
+import model.LocalizedStrings;
 
 public class KUR2EditorFrame extends JFrame{
 	private static final long serialVersionUID = 1L;
@@ -24,7 +27,9 @@ public class KUR2EditorFrame extends JFrame{
 	
 	public KUR2EditorFrame(){
 		super();
-		setTitle("Grafischer Editor für KUR2-Programme");
+		LocalizationController.setLanguage(Language.GERMAN);
+		
+		setTitle(LocalizedStrings.title);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -48,9 +53,9 @@ public class KUR2EditorFrame extends JFrame{
 	private JMenuBar constructMenuBar(){
 		JMenuBar menuBar=new JMenuBar();
 		
-		JMenu file=new JMenu("Datei");
+		JMenu file=new JMenu(LocalizedStrings.menuFile);
 		menuBar.add(file);
-		JMenuItem newProject=new JMenuItem(new AbstractAction("Neu"){
+		JMenuItem newProject=new JMenuItem(new AbstractAction(LocalizedStrings.menuFileNew){
 			private static final long serialVersionUID = 1L;
 			@Override public void actionPerformed(ActionEvent e) {
 				editorController.reset();
@@ -65,7 +70,7 @@ public class KUR2EditorFrame extends JFrame{
 //		});
 //		file.add(open);
 		file.addSeparator();
-		JMenuItem exit=new JMenuItem(new AbstractAction("Beenden"){
+		JMenuItem exit=new JMenuItem(new AbstractAction(LocalizedStrings.menuFileExit){
 			private static final long serialVersionUID = 1L;
 			@Override public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -74,9 +79,9 @@ public class KUR2EditorFrame extends JFrame{
 		file.add(exit);
 		
 		
-		JMenu compile=new JMenu("Übersetzen");
+		JMenu compile=new JMenu(LocalizedStrings.menuCompile);
 		menuBar.add(compile);
-		JMenuItem graphicalCompile=new JMenuItem(new AbstractAction("Übersetzen"){
+		JMenuItem graphicalCompile=new JMenuItem(new AbstractAction(LocalizedStrings.menuCompileCompile){
 			private static final long serialVersionUID = 1L;
 			@Override public void actionPerformed(ActionEvent e) {
 				new CompilingWindow(KUR2EditorFrame.this);
@@ -84,7 +89,7 @@ public class KUR2EditorFrame extends JFrame{
 		});
 		compile.add(graphicalCompile);
 		compile.addSeparator();
-		JMenuItem quickCompile=new JMenuItem(new AbstractAction("Schnell übersetzen"){
+		JMenuItem quickCompile=new JMenuItem(new AbstractAction(LocalizedStrings.menuCompileFast){
 			private static final long serialVersionUID = 1L;
 			@Override public void actionPerformed(ActionEvent e) {
 				CompilerController.quickCompile(KUR2EditorFrame.this);
@@ -92,22 +97,19 @@ public class KUR2EditorFrame extends JFrame{
 		});
 		compile.add(quickCompile);
 		
-		JMenu help=new JMenu("Hilfe");
+		JMenu help=new JMenu(LocalizedStrings.menuHelp);
 		menuBar.add(help);
-		JMenuItem delete=new JMenuItem(new AbstractAction("Befehl löschen"){
+		JMenuItem delete=new JMenuItem(new AbstractAction(LocalizedStrings.menuHelpDelete){
 			private static final long serialVersionUID = 1L;
 			@Override public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(KUR2EditorFrame.this, "Zum löschen eines Befehls die Strg-Taste gedrückt halten und den zu löschenden Befehl anklicken.", "Info", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(KUR2EditorFrame.this, LocalizedStrings.menuHelpDeleteText, LocalizedStrings.menuHelpHeadline, JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		help.add(delete);
-		JMenuItem adresses=new JMenuItem(new AbstractAction("Adressen bearbeiten"){
+		JMenuItem adresses=new JMenuItem(new AbstractAction(LocalizedStrings.menuHelpEditAddress){
 			private static final long serialVersionUID = 1L;
 			@Override public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(KUR2EditorFrame.this, "Um die Ziele von Befehlen, die auf Adressen verweisen, zu ändern, muss vom zu ändernden Befehlen\n"
-						+ "mit der rechten Maustaste eine Verbindung zum Ziel gezogen werden. Die erscheinende rote\n"
-						+ "Verbindungslinie rastet auf dem Ziel ein, wenn dieses erkannt wurde. Zur besseren Zielerkennug\n"
-						+ "beim Ziehen auf den Befehlstext vom Ziel zeigen.", "Info", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(KUR2EditorFrame.this, LocalizedStrings.menuHelpEditAddressText, LocalizedStrings.menuHelpHeadline, JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		help.add(adresses);

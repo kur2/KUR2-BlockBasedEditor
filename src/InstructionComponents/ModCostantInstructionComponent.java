@@ -6,6 +6,7 @@ import java.awt.event.FocusEvent;
 import javax.swing.JTextField;
 
 import model.InstructionComponent;
+import model.LocalizedStrings;
 
 public class ModCostantInstructionComponent extends InstructionComponent{
 	private static final long serialVersionUID = 1L;
@@ -13,7 +14,7 @@ public class ModCostantInstructionComponent extends InstructionComponent{
 	private JTextField textField;
 	
 	public ModCostantInstructionComponent(boolean isMenuItem){
-		setDisplayedText("Nimm modulo Konst.");
+		setDisplayedText(LocalizedStrings.instructionModC);
 		
 		setLayout(null);
 		

@@ -12,6 +12,7 @@ import javax.swing.SwingUtilities;
 import InstructionComponents.StartInstructionComponent;
 import model.InstructionComponent;
 import model.InstructionComponentFactory;
+import model.LocalizedStrings;
 import view.EditorPanel;
 import view.InstructionSelector;
 import view.KUR2EditorFrame;
@@ -142,7 +143,7 @@ public class EditorController {
 	
 	private void componentReleased(MouseEvent e){
 		if(e.getButton()==MouseEvent.BUTTON3 && draggingStart!=null){
-			int result=JOptionPane.showConfirmDialog(editorPanel, "Soll statt der Datenzelle die Instruktionszelle gewählt werden?", "Speicherzelle wählen", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+			int result=JOptionPane.showConfirmDialog(editorPanel, LocalizedStrings.editorUseInstructionCellPrompt, LocalizedStrings.editorUseInstructionCellHeadline, JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
 			if(result==JOptionPane.YES_OPTION){
 				draggingStart.setPointingToHiInt(true);
 			}else{

@@ -7,6 +7,7 @@ import javax.swing.border.EtchedBorder;
 
 import controller.EditorController;
 import model.InstructionComponent;
+import model.LocalizedStrings;
 
 public class AddAddressInstructionComponent extends InstructionComponent {
 	private static final long serialVersionUID = 1L;
@@ -14,7 +15,7 @@ public class AddAddressInstructionComponent extends InstructionComponent {
 	JLabel label;
 	
 	public AddAddressInstructionComponent(){
-		setDisplayedText("Addiere Wert bei");
+		setDisplayedText(LocalizedStrings.instructionAddA);
 		setPreferredSize(new Dimension(150, 50));
 		setLayout(null);
 		

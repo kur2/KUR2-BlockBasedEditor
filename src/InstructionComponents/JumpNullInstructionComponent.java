@@ -7,6 +7,7 @@ import javax.swing.border.EtchedBorder;
 
 import controller.EditorController;
 import model.InstructionComponent;
+import model.LocalizedStrings;
 
 public class JumpNullInstructionComponent extends InstructionComponent {
 	private static final long serialVersionUID = 1L;
@@ -14,7 +15,7 @@ public class JumpNullInstructionComponent extends InstructionComponent {
 	JLabel label;
 	
 	public JumpNullInstructionComponent(){
-		setDisplayedText("Falls ACC=0 springe");
+		setDisplayedText(LocalizedStrings.instructionJumpNull);
 		setPreferredSize(new Dimension(150, 50));
 		setLayout(null);
 		

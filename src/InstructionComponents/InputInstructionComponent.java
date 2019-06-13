@@ -6,6 +6,7 @@ import java.awt.event.FocusEvent;
 import javax.swing.JTextField;
 
 import model.InstructionComponent;
+import model.LocalizedStrings;
 
 public class InputInstructionComponent extends InstructionComponent {
 	private static final long serialVersionUID = 1L;
@@ -13,7 +14,7 @@ public class InputInstructionComponent extends InstructionComponent {
 	private JTextField textField;
 	
 	public InputInstructionComponent(boolean isMenuItem){
-		setDisplayedText("Hole Eingabe von Port");
+		setDisplayedText(LocalizedStrings.instructionInput);
 		
 		setLayout(null);
 		

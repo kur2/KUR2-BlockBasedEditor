@@ -35,6 +35,7 @@ import InstructionComponents.StoreInstructionComponent;
 import InstructionComponents.SubAddressInstructionComponent;
 import InstructionComponents.SubConstantInstructionComponent;
 import model.InstructionComponent;
+import model.LocalizedStrings;
 import view.CompilingPanel;
 import view.CompilingWindow;
 import view.KUR2EditorFrame;
@@ -64,7 +65,7 @@ public class CompilerController implements ActionListener{
 	
 	public CompilerController(KUR2EditorFrame kur2EditorFrame, CompilingWindow compilingWindow){
 		if(kur2EditorFrame.getEditorController().getStartInstructionComponent().getLinkedComponent()==null){
-			JOptionPane.showMessageDialog(kur2EditorFrame, "Kein Programm gefunden. Sind Befehle mit dem Startblock verbunden?", "Fehler", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(kur2EditorFrame, LocalizedStrings.compilerErrorNoProg, LocalizedStrings.compilerErrorHeadline, JOptionPane.ERROR_MESSAGE);
 			aborted=true;
 			return;
 		}
@@ -77,7 +78,7 @@ public class CompilerController implements ActionListener{
 		
 		boolean haltFound=hasHalt(kur2EditorFrame.getEditorController().getStartInstructionComponent());
 		if(!haltFound){
-			int result=JOptionPane.showConfirmDialog(kur2EditorFrame, "Es wurde kein Haltebefehl gefunden! Übersetzen wirklich fortsetzen?", "Fehler", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+			int result=JOptionPane.showConfirmDialog(kur2EditorFrame, LocalizedStrings.compilerErrorNoHalt, LocalizedStrings.compilerErrorHeadline, JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 			if(result!=JOptionPane.YES_OPTION){
 				aborted=true;
 				return;
@@ -183,12 +184,12 @@ public class CompilerController implements ActionListener{
 	public static void quickCompile(KUR2EditorFrame kur2EditorFrame){
 		StartInstructionComponent startInstructionComponent=kur2EditorFrame.getEditorController().getStartInstructionComponent();
 		if(kur2EditorFrame.getEditorController().getStartInstructionComponent().getLinkedComponent()==null){
-			JOptionPane.showMessageDialog(kur2EditorFrame, "Kein Programm gefunden. Sind Befehle mit dem Startblock verbunden?", "Fehler", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(kur2EditorFrame, LocalizedStrings.compilerErrorNoProg, LocalizedStrings.compilerErrorHeadline, JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		boolean haltFound=hasHalt(startInstructionComponent);
 		if(!haltFound){
-			int result=JOptionPane.showConfirmDialog(kur2EditorFrame, "Es wurde kein Haltebefehl gefunden! Übersetzen wirklich fortsetzen?", "Fehler", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+			int result=JOptionPane.showConfirmDialog(kur2EditorFrame, LocalizedStrings.compilerErrorNoHalt, LocalizedStrings.compilerErrorHeadline, JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 			if(result!=JOptionPane.YES_OPTION){
 				return;
 			}
@@ -208,9 +209,9 @@ public class CompilerController implements ActionListener{
 			
 			out.close();
 			
-			JOptionPane.showMessageDialog(kur2EditorFrame, "Übersetzen erfolgreich! Es wurden "+counter+" Zeilen Code erzeugt.", "Übersetzen erfolgreich", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(kur2EditorFrame, LocalizedStrings.compilerSuccess1+counter+LocalizedStrings.compilerSuccess2, LocalizedStrings.compilerSuccessHeadline, JOptionPane.INFORMATION_MESSAGE);
 		}catch(IOException e){
-			JOptionPane.showMessageDialog(kur2EditorFrame, "Fehler beim schreiben in die Datei "+outputFilePath+". Existieren die (Unter-)Ordner?", "Schreibfehler", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(kur2EditorFrame, LocalizedStrings.compilerWritingError1+outputFilePath+LocalizedStrings.compilerWritingError2, LocalizedStrings.compilerWritingErrorHeadline, JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	

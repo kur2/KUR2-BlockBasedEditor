@@ -1,12 +1,13 @@
 package InstructionComponents;
 
 import model.InstructionComponent;
+import model.LocalizedStrings;
 
 public class HaltInstructionComponent extends InstructionComponent {
 	private static final long serialVersionUID = 1L;
 	
 	public HaltInstructionComponent(){
-		setDisplayedText("Halt");
+		setDisplayedText(LocalizedStrings.instructionHalt);
 	}
 
 	@Override

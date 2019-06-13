@@ -7,6 +7,7 @@ import javax.swing.border.EtchedBorder;
 
 import controller.EditorController;
 import model.InstructionComponent;
+import model.LocalizedStrings;
 
 public class LoadAddressInstructionComponent extends InstructionComponent {
 	private static final long serialVersionUID = 1L;
@@ -14,7 +15,7 @@ public class LoadAddressInstructionComponent extends InstructionComponent {
 	JLabel label;
 	
 	public LoadAddressInstructionComponent(){
-		setDisplayedText("Lade Wert bei");
+		setDisplayedText(LocalizedStrings.instructionLoadA);
 		setPreferredSize(new Dimension(150, 50));
 		setLayout(null);
 		

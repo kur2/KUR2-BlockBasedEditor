@@ -1,12 +1,13 @@
 package InstructionComponents;
 
 import model.InstructionComponent;
+import model.LocalizedStrings;
 
 public class NullInstructionComponent extends InstructionComponent {
 	private static final long serialVersionUID = 1L;
 	
 	public NullInstructionComponent(){
-		setDisplayedText("Lade Konstante 0");
+		setDisplayedText(LocalizedStrings.instructionNull);
 	}
 
 	@Override

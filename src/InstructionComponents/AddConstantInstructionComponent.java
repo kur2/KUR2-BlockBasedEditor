@@ -6,6 +6,7 @@ import java.awt.event.FocusEvent;
 import javax.swing.JTextField;
 
 import model.InstructionComponent;
+import model.LocalizedStrings;
 
 public class AddConstantInstructionComponent extends InstructionComponent {
 	private static final long serialVersionUID = 1L;
@@ -13,7 +14,7 @@ public class AddConstantInstructionComponent extends InstructionComponent {
 	private JTextField textField;
 	
 	public AddConstantInstructionComponent(boolean isMenuItem){
-		setDisplayedText("Addiere Konstante");
+		setDisplayedText(LocalizedStrings.instructionAddC);
 		
 		setLayout(null);
 		

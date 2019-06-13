@@ -7,6 +7,7 @@ import java.awt.event.FocusEvent;
 import javax.swing.JTextField;
 
 import model.InstructionComponent;
+import model.LocalizedStrings;
 
 public class NoopInstructionComponent extends InstructionComponent {
 	private static final long serialVersionUID = 1L;
@@ -14,7 +15,7 @@ public class NoopInstructionComponent extends InstructionComponent {
 	private JTextField textField;
 
 	public NoopInstructionComponent(boolean isMenuItem){
-		setDisplayedText("Keine Operation");
+		setDisplayedText(LocalizedStrings.instructionNoop);
 		
 		setLayout(null);
 		
